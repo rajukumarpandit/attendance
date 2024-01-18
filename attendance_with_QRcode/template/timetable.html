@@ -1,0 +1,80 @@
+{% include "bootstrapcdn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+</head>
+<body>
+    <div class="container-flud p-3">
+        <div class="container alert-info p-2">
+            <h3 class="text-info text-center p-2">Time Table</h3>
+                <form action="/Timetables/" method="POST" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="Facultyid">Faculty ID</label>
+                            <input type="text" name="facultyid" id="facultyid" class="form-control" placeholder="Faculty id">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fname" class="label-control">First Name</label>
+                            <input type="text" name="fname" id="fname" class="form-control" placeholder="Enter First Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="mname" class="label-control">Midle Name</label>
+                            <input type="text" name="mname" id="mname" class="form-control" placeholder="Enter Midle Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="lname" class="label-control">Last Name</label>
+                            <input type="text" name="lname" id="lname" class="form-control" placeholder="Enter Last Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="course" class="label-control">Course Name</label>
+                            <input type="text" name="course" id="course" class="form-control" placeholder="Enter Course Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="subject" class="label-control">Subject Name</label>
+                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Enter Subject Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="roomno" class="label-control">Room Number</label>
+                            <input type="text" name="roomno" id="roomno" class="form-control" placeholder="Enter Room Number.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="date" class="label-control">Date</label>
+                            <input type="date" name="date" id="date" class="form-control" placeholder="Enter Date.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="stime" class="label-control">Session Starting time</label>
+                            <input type="time" name="stime" id="stime" class="form-control" placeholder="Enter Starring Time.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="etime" class="label-control">Session Ending time</label>
+                            <input type="time" name="etime" id="etime" class="form-control" placeholder="Enter Ending Time.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Day" class="label-control">Day</label>
+                            <input type="day" name="day" id="day" class="form-control" placeholder="Enter Day Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-align-end">
+                            <button type="submit" class="btn bg-info text-white mt-3">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

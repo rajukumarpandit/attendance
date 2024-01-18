@@ -1,0 +1,42 @@
+{% include "bootstrapcdn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-flud p-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 mt-5 p-5 text-center">
+                    <h2 class="text-info">Your Welcome!</h2>
+                    <h5 class="text-info">DAV public school</h5>
+                </div>
+                <div class="col-md-5 p-3">
+                    <h3 class="m-5 text-info text-center">Faculty Login</h3>
+                    <form action="/teacherLoginVeryfy/" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <input type="text" name="facultyid" id="facultyid" class="form-control mt-3" placeholder="Enter Faculty ID.." required>
+                                <div class="valid-feedback">
+                                    valid email
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please Enter valid email.
+                                </div> 
+                        <input type="password" name="password" id="password" class="form-control mt-3" placeholder="Please Enter Password.." required>
+                                <div class="invalid-feedback">
+                                    Please Enter valid password.
+                                </div>
+                        <button type="submit" class="btn bg-info text-white mt-3">Log In</button>
+                        <hr>
+                    </form>
+                    <p>Forgot Password? <a href="#">Go to</a></p>
+                    <div class="p-3 mb-2 bg-info text-white text-center rounded border-2">Thank you!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

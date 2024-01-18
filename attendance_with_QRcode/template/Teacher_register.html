@@ -1,0 +1,66 @@
+{% include "bootstrapcdn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container-flud p-3">
+        <div class="container alert-info p-2">
+            <h3 class="text-info text-center p-2">Teacher Registration</h3>
+                <form action="/Teacher_registers/" method="POST" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="fname" class="label-control">First Name</label>
+                            <input type="text" name="fname" id="fname" class="form-control" placeholder="Enter First Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="mname" class="label-control">Midle Name</label>
+                            <input type="text" name="mname" id="mname" class="form-control" placeholder="Enter Midle Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="lname" class="label-control">Last Name</label>
+                            <input type="text" name="lname" id="lname" class="form-control" placeholder="Enter Last Name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="facultyid" class="label-control">Faculty ID</label>
+                            <input type="text" name="facultyid" id="facultyid" class="form-control" placeholder="Enter Faculty ID">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="label-control">Email ID</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter email.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="mobile" class="label-control">Mobile Number</label>
+                            <input type="tel" name="mobile" id="mobile" class="form-control" placeholder="Enter mobile number" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dapartment" class="label-control">Department Name</label>
+                            <input type="text" name="department" id="department" class="form-control" placeholder="Enter course name.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="jdate" class="label-control">Joing Date</label>
+                            <input type="date" name="jdate" id="jdate" class="form-control" placeholder="Enter Joing date.." required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-align-end">
+                            <button type="submit" class="btn bg-info text-white mt-3">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

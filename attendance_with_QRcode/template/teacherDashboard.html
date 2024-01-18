@@ -1,0 +1,82 @@
+{% include "bootstrapcdn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid bg-info p-1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light m-2">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">School</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" 
+   aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" 
+   aria-expanded="false">
+                      Attendance
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">View</a></li>
+                      <li><a class="dropdown-item" href="#">Edit</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">LogOut</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <div class="container alert-info mt-2 p-3">
+      <div class="row">
+        <h3 class="alert text-center p-2">Take Attendance</h3>
+      </div>
+      <div class="row">
+        <table class="table table-bordered border-primary">
+          {% for data in info %}
+          <tr scope="row">
+            <th class="fs-3 text-capitalize">Faculty Name </th>
+            <td  class="fs-3 text-capitalize">{{data.F_Name}} {{data.M_Name}} {{data.L_Name}}</td>
+          </tr>
+          <tr>
+            <th class="fs-4 text-capitalize">Department Name</th>
+            <td class="fs-4 text-uppercase">{{data.Depatment_Name}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% if data %}
+      <div class="row">
+        {% for tinfo in data%}
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <p>Course Name: {{tinfo.Course_Name}}</p>
+              <p>Time {{tinfo.S_Time}} - {{tinfo.E_Time}}</p>
+              <form action="/qrcodes/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="Timetableid" id="Timetableid" value="{{tinfo.TimetableID}}">
+                <button class="btn btn-primary">Generate QRCode</button>
+              </form> 
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+        {% else %}
+        <p>no data</p>
+        {% endif %}
+      </div>
+    </div>
+</body>
+</html>

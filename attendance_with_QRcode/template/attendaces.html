@@ -1,0 +1,60 @@
+{% include "bootstrapcdn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container alert-info mt-2">
+        <div class="row">
+            <h3 class="alert bg-alert-info text-center">Today Attendance</h3>
+        </div>
+        <div class="row p-3">
+          <table class="table table-bordered border-primary">
+              {% for data in tinfo %}
+              <thead>
+                 <tr>
+                    <th scope="col">Faculty ID</th>
+                    <td>{{data.Faculty_ID}}</td>
+                  </tr>
+              </thead>
+                <tbody>
+                  <tr>
+                    <th scope="col">Course Name</th>
+                    <td>{{data.Course_Name}}</td>
+                  </tr>
+                  <tr>
+                      <th scope="col">Date</th>
+                      <td>12/2/2023</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+          </table>
+      </div>
+        <div class="row p-3">
+            <table class="table table-bordered border-primary">
+                <thead>
+                    <tr>
+                      <th scope="col">Roll Number</th>
+                      <th scope="col">Student Name</th>
+                      <th scope="col">Present/Absent</th>
+                    </tr>
+                  </thead>
+                  {% for data in sinfo %}
+                  <tbody>
+                    <tr>
+                      <!--{}-->
+                      <th scope="row">{{rollno}}</th>
+                      <!--{}-->
+                      <td>{{data.F_Name}} {{data.M_Name}} {{data.L_Name}}</td>
+                      <td>p/a</td>
+                    </tr>
+                  </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
